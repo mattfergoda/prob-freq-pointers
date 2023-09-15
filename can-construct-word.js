@@ -1,21 +1,24 @@
+"use strict";
+
 /**
  * Accepts two strings, word and letters. If word can be made from letters,
  * return true. Otherwise, return false. Assumes only lowercase for words
  * and letters.
  */
 function canConstructWord(word, letters) {
+  //TODO: If lengths mis-match return false.
 
   // x Build a frequency counter.
 
-  // x Get the frequencies of each letter in word.
+  // x Get the frequencies of each char in word.
   const wordFreqs = getFrequencyCounts(word);
 
-  // x Get the frequencies of each letter in letter.
+  // x Get the frequencies of each char in letter.
   const letterFreqs = getFrequencyCounts(letters);
 
   // x if any letter in word is not in letter freqs, or the value of that key
   // in letter freqs is < that letter's key in word freqs, return false.
-  for (const char of word) {
+  for (const char of word) { // TODO: iterate over wordFreq keys instead.
     if (!(char in letterFreqs)) return false; // Char isn't even in letters
     if (letterFreqs[char] < wordFreqs[char]) return false;
   }

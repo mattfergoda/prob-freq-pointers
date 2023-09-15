@@ -1,3 +1,4 @@
+"use strict";
 
 /**
  * Takes in sorted array of numbers, nums, and a numeric targetAvg.
