@@ -6,7 +6,8 @@
  * and letters.
  */
 function canConstructWord(word, letters) {
-  //TODO: If lengths mis-match return false.
+  // If there are more chars in word than letters return false.
+  if (word.length > letters.length) return false;
 
   // x Build a frequency counter.
 
@@ -18,7 +19,7 @@ function canConstructWord(word, letters) {
 
   // x if any letter in word is not in letter freqs, or the value of that key
   // in letter freqs is < that letter's key in word freqs, return false.
-  for (const char of word) { // TODO: iterate over wordFreq keys instead.
+  for (let char in wordFreqs) {
     if (!(char in letterFreqs)) return false; // Char isn't even in letters
     if (letterFreqs[char] < wordFreqs[char]) return false;
   }
